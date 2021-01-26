@@ -8,12 +8,33 @@
     "extra": {
         "statamic": {
             "name": "Feeder",
-            "description": "Feeder addon"
+            "description": "Feed RSS, JSON, Atom and CSV's into Statamic Entries."
         },
         "laravel": {
             "providers": [
                 "DoubleThreeDigital\\Feeder\\ServiceProvider"
             ]
         }
+    },
+    "require": {
+        "statamic/cms": "3.0.*"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^4.2",
+        "orchestra/testbench": "^5.0"
+    },
+    "minimum-stability": "dev",
+    "scripts": {
+        "lint": [
+            "php-cs-fixer fix ./src"
+        ],
+        "test": [
+            "./vendor/bin/phpunit"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
     }
 }
