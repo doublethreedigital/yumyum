@@ -44,14 +44,25 @@ class FeedController extends CpController
         ]);
     }
 
-    public function edit()
+    public function edit($feed)
     {
-        //
+        $feed = FeedFacade::find($feed);
+
+        return view('feeder::feeds.edit', [
+            'feed' => $feed,
+        ]);
     }
 
-    public function update()
+    public function update(Request $request, $feed)
     {
-        //
+        $feed = FeedFacade::find($feed)
+            ->name($request->name)
+            ->type($request->type)
+            ->source($request->source);
+
+        $feed->save();
+
+        return redirect()->to($feed->showUrl());
     }
 
     public function destroy($feed)
