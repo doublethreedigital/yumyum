@@ -3,7 +3,6 @@
 namespace DoubleThreeDigital\Feeder\Http\Controllers;
 
 use DoubleThreeDigital\Feeder\Facades\Feed as FeedFacade;
-use DoubleThreeDigital\Feeder\Feeds\Feed;
 use Illuminate\Http\Request;
 use Statamic\Facades\Stache;
 use Statamic\Http\Controllers\CP\CpController;

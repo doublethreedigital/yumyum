@@ -105,6 +105,13 @@ class Feed
         ]);
     }
 
+    public function runUrl()
+    {
+        return cp_route('feeder.feeds.run', [
+            'feed' => $this->id(),
+        ]);
+    }
+
     public function deleteUrl()
     {
         return cp_route('feeder.feeds.destroy', [

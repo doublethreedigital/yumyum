@@ -1,6 +1,7 @@
 <?php
 
 use DoubleThreeDigital\Feeder\Http\Controllers\FeedController;
+use DoubleThreeDigital\Feeder\Http\Controllers\RunFeedController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('feeder')->name('feeder.')->group(function () {
@@ -11,6 +12,7 @@ Route::prefix('feeder')->name('feeder.')->group(function () {
         Route::get('/{feed}', [FeedController::class, 'show'])->name('show');
         Route::get('/{feed}/edit', [FeedController::class, 'edit'])->name('edit');
         Route::post('/{feed}/edit', [FeedController::class, 'update'])->name('update');
+        Route::get('/{feed}/run', [RunFeedController::class, 'run'])->name('run');
         Route::delete('/{feed}', [FeedController::class, 'destroy'])->name('destroy');
     });
 });

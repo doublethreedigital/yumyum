@@ -30,6 +30,7 @@
                         <td>{{ $feed->type() }} - {{ $feed->get('source') }}</td>
                         <td class="flex justify-end">
                             <dropdown-list class="mr-1">
+                                <dropdown-item :text="__('Run Feed')" redirect="{{ $feed->runUrl() }}"></dropdown-item>
                                 <dropdown-item :text="__('Edit Feed')" redirect="{{ $feed->editUrl() }}"></dropdown-item>
                                 <dropdown-item :text="__('Delete Feed')" class="warning" @click="$refs.deleter.confirm()">
                                     <resource-deleter
