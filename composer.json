@@ -1,0 +1,19 @@
+{
+    "name": "doublethreedigital/feeder",
+    "autoload": {
+        "psr-4": {
+            "DoubleThreeDigital\\Feeder\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Feeder",
+            "description": "Feeder addon"
+        },
+        "laravel": {
+            "providers": [
+                "DoubleThreeDigital\\Feeder\\ServiceProvider"
+            ]
+        }
+    }
+}
