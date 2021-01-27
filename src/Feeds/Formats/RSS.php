@@ -17,11 +17,6 @@ class RSS
 
     public function handle(): Collection
     {
-        return $this->parseFeed();
-    }
-
-    protected function parseFeed(): Collection
-    {
         $items = [];
 
         try {

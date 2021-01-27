@@ -6,19 +6,15 @@ class Entry
 {
     // TODO: interface
 
-    protected $item;
+    protected array $item;
 
-    public function __construct($item)
+    public function __construct(array $item)
     {
         $this->item = $item;
     }
 
     public function toArray(): array
     {
-        return [
-            'title'     => $this->item['title'],
-            'content'   => $this->item['summary'],
-            'date'      => \Carbon\Carbon::parse($this->item['date']),
-        ];
+        return $this->item;
     }
 }
