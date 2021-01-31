@@ -27,7 +27,8 @@ class FeedController extends CpController
             ->id(Stache::generateId())
             ->name($request->name)
             ->type($request->type)
-            ->source($request->source);
+            ->source($request->source)
+            ->destination($request->destination);
 
         $feed->save();
 
@@ -57,7 +58,8 @@ class FeedController extends CpController
         $feed = FeedFacade::find($feed)
             ->name($request->name)
             ->type($request->type)
-            ->source($request->source);
+            ->source($request->source)
+            ->destination($request->destination);
 
         $feed->save();
 
