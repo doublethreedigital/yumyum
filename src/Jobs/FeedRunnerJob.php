@@ -37,12 +37,14 @@ class FeedRunnerJob implements ShouldQueue
         });
 
         // Save as entry, etc.
-        $items->each(function ($item) {
-            EntryFacade::make()
-                ->collection('pages')
-                ->slug(Str::slug($item['title']))
-                ->data($item)
-                ->save();
-        });
+        if ($this->feed->destination()['type'] == 'entries') {
+            $items->each(function ($item) {
+                EntryFacade::make()
+                    ->collection($this->feed->destination()['collection'])
+                    ->slug(Str::slug($item['title']))
+                    ->data($item)
+                    ->save();
+            });
+        }
     }
 }
