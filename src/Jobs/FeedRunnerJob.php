@@ -32,7 +32,7 @@ class FeedRunnerJob implements ShouldQueue
 
         // Transform into array
         $items = $items->map(function ($item) {
-            return resolve(Entry::class, [
+            return resolve($this->feed->transformer(), [
                 'item' => $item,
             ])->toArray();
         });

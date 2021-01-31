@@ -3,6 +3,7 @@
 namespace DoubleThreeDigital\Feeder\Stache\Feeds;
 
 use DoubleThreeDigital\Feeder\Facades\Feed as FeedFacade;
+use Illuminate\Support\Arr;
 use Statamic\Facades\YAML;
 use Statamic\Stache\Stores\BasicStore;
 
@@ -26,7 +27,11 @@ class FeedStore extends BasicStore
             ->id($id)
             ->name(array_pull($data, 'name'))
             ->type(array_pull($data, 'type'))
-            ->source(array_pull($data, 'source'));
+            ->source(array_pull($data, 'source'))
+            ->destination(array_pull($data, 'destination'))
+            ->data(
+                Arr::except($data, ['name', 'type', 'source', 'destination'])
+            );
 
         if (isset($idGenerated)) {
             $form->save();

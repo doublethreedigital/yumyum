@@ -18,6 +18,7 @@ class Feed
     protected $name;
     protected $type;
     protected $source;
+    protected $destination;
 
     public function __construct()
     {
@@ -43,6 +44,24 @@ class Feed
     public function source($source = null)
     {
         return $this->fluentlyGetOrSet('source')->args(func_get_args());
+    }
+
+    public function destination($destination = null)
+    {
+        return $this->fluentlyGetOrSet('destination')->args(func_get_args());
+    }
+
+    public function transformer()
+    {
+        if ($transformer = $this->data()->get('transformer')) {
+            return $transformer;
+        }
+
+        if ($this->destination()['type'] == 'entries') {
+            return Transformers\Entry::class;
+        }
+
+        return null;
     }
 
     public function save()
@@ -71,6 +90,7 @@ class Feed
             'name'   => $this->name(),
             'type'   => $this->type(),
             'source' => $this->source(),
+            'destination' => $this->destination(),
         ];
     }
 
