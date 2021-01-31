@@ -8,6 +8,10 @@ use Statamic\Stache\Stache;
 
 class ServiceProvider extends AddonServiceProvider
 {
+    protected $commands = [
+        Console\Commands\RunCommand::class,
+    ];
+
     protected $routes = [
         'cp' => __DIR__.'/../routes/cp.php',
     ];
