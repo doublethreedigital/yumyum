@@ -1,8 +1,8 @@
 <?php
 
-namespace DoubleThreeDigital\Feeder\Feeds;
+namespace DoubleThreeDigital\YumYum\Feeds;
 
-use DoubleThreeDigital\Feeder\Facades\Feed as FeedFacade;
+use DoubleThreeDigital\YumYum\Facades\Feed as FeedFacade;
 use Statamic\Data\ContainsData;
 use Statamic\Data\ExistsAsFile;
 use Statamic\Data\TracksQueriedColumns;
@@ -106,35 +106,35 @@ class Feed
 
     public function showUrl()
     {
-        return cp_route('feeder.feeds.show', [
+        return cp_route('yumyum.feeds.show', [
             'feed' => $this->id(),
         ]);
     }
 
     public function editUrl()
     {
-        return cp_route('feeder.feeds.edit', [
+        return cp_route('yumyum.feeds.edit', [
             'feed' => $this->id(),
         ]);
     }
 
     public function updateUrl()
     {
-        return cp_route('feeder.feeds.update', [
+        return cp_route('yumyum.feeds.update', [
             'feed' => $this->id(),
         ]);
     }
 
     public function runUrl()
     {
-        return cp_route('feeder.feeds.run', [
+        return cp_route('yumyum.feeds.run', [
             'feed' => $this->id(),
         ]);
     }
 
     public function deleteUrl()
     {
-        return cp_route('feeder.feeds.destroy', [
+        return cp_route('yumyum.feeds.destroy', [
             'feed' => $this->id(),
         ]);
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace DoubleThreeDigital\Feeder\Feeds\Formats;
+namespace DoubleThreeDigital\YumYum\Feeds\Formats;
 
 use Illuminate\Support\Collection;
 

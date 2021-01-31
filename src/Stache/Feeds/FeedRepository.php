@@ -1,9 +1,9 @@
 <?php
 
-namespace DoubleThreeDigital\Feeder\Stache\Feeds;
+namespace DoubleThreeDigital\YumYum\Stache\Feeds;
 
-use DoubleThreeDigital\Feeder\Contracts\Stache\FeedRepository as Contract;
-use DoubleThreeDigital\Feeder\Feeds\Feed;
+use DoubleThreeDigital\YumYum\Contracts\Stache\FeedRepository as Contract;
+use DoubleThreeDigital\YumYum\Feeds\Feed;
 use Statamic\Data\DataCollection;
 use Statamic\Stache\Stache;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace DoubleThreeDigital\Feeder\Facades;
+namespace DoubleThreeDigital\YumYum\Facades;
 
-use DoubleThreeDigital\Feeder\Contracts\Stache\FeedRepository;
+use DoubleThreeDigital\YumYum\Contracts\Stache\FeedRepository;
 use Illuminate\Support\Facades\Facade;
 
 class Feed extends Facade

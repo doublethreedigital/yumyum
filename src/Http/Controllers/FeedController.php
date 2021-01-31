@@ -1,8 +1,8 @@
 <?php
 
-namespace DoubleThreeDigital\Feeder\Http\Controllers;
+namespace DoubleThreeDigital\YumYum\Http\Controllers;
 
-use DoubleThreeDigital\Feeder\Facades\Feed as FeedFacade;
+use DoubleThreeDigital\YumYum\Facades\Feed as FeedFacade;
 use Illuminate\Http\Request;
 use Statamic\Facades\Stache;
 use Statamic\Http\Controllers\CP\CpController;
@@ -11,14 +11,14 @@ class FeedController extends CpController
 {
     public function index()
     {
-        return view('feeder::feeds.index', [
+        return view('yumyum::feeds.index', [
             'feeds' => FeedFacade::all(),
         ]);
     }
 
     public function create()
     {
-        return view('feeder::feeds.create');
+        return view('yumyum::feeds.create');
     }
 
     public function store(Request $request)
@@ -38,7 +38,7 @@ class FeedController extends CpController
     {
         $feed = FeedFacade::find($feed);
 
-        return view('feeder::feeds.show', [
+        return view('yumyum::feeds.show', [
             'feed' => $feed,
         ]);
     }
@@ -47,7 +47,7 @@ class FeedController extends CpController
     {
         $feed = FeedFacade::find($feed);
 
-        return view('feeder::feeds.edit', [
+        return view('yumyum::feeds.edit', [
             'feed' => $feed,
         ]);
     }
@@ -68,6 +68,6 @@ class FeedController extends CpController
     {
         FeedFacade::find($feed)->delete();
 
-        return redirect()->to(cp_route('feeder.feeds.index'));
+        return redirect()->to(cp_route('yumyum.feeds.index'));
     }
 }

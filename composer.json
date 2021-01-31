@@ -1,18 +1,18 @@
 {
-    "name": "doublethreedigital/feeder",
+    "name": "doublethreedigital/yumyum",
     "autoload": {
         "psr-4": {
-            "DoubleThreeDigital\\Feeder\\": "src"
+            "DoubleThreeDigital\\YumYum\\": "src"
         }
     },
     "extra": {
         "statamic": {
-            "name": "Feeder",
-            "description": "Feed RSS, JSON, Atom and CSV's into Statamic Entries."
+            "name": "YumYum",
+            "description": "Transform data from RSS, JSON & CSV's into Statamic entries."
         },
         "laravel": {
             "providers": [
-                "DoubleThreeDigital\\Feeder\\ServiceProvider"
+                "DoubleThreeDigital\\YumYum\\ServiceProvider"
             ]
         }
     },

@@ -1,6 +1,6 @@
 <?php
 
-namespace DoubleThreeDigital\Feeder\Stache\Feeds;
+namespace DoubleThreeDigital\YumYum\Stache\Feeds;
 
 use Statamic\Data\DataCollection;
 use Statamic\Stache\Query\Builder;

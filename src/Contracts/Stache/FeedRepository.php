@@ -1,6 +1,6 @@
 <?php
 
-namespace DoubleThreeDigital\Feeder\Contracts\Stache;
+namespace DoubleThreeDigital\YumYum\Contracts\Stache;
 
 interface FeedRepository
 {

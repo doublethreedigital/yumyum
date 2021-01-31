@@ -1,10 +1,9 @@
 <?php
 
-namespace DoubleThreeDigital\Feeder\Jobs;
+namespace DoubleThreeDigital\YumYum\Jobs;
 
-use DoubleThreeDigital\Feeder\Feeds\Feed;
-use DoubleThreeDigital\Feeder\Feeds\Formats\RSS;
-use DoubleThreeDigital\Feeder\Feeds\Transformers\Entry;
+use DoubleThreeDigital\YumYum\Feeds\Feed;
+use DoubleThreeDigital\YumYum\Feeds\Formats\RSS;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

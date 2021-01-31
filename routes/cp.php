@@ -1,10 +1,10 @@
 <?php
 
-use DoubleThreeDigital\Feeder\Http\Controllers\FeedController;
-use DoubleThreeDigital\Feeder\Http\Controllers\RunFeedController;
+use DoubleThreeDigital\YumYum\Http\Controllers\FeedController;
+use DoubleThreeDigital\YumYum\Http\Controllers\RunFeedController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('feeder')->name('feeder.')->group(function () {
+Route::prefix('feeder')->name('yumyum.')->group(function () {
     Route::prefix('feeds')->name('feeds.')->group(function () {
         Route::get('/', [FeedController::class, 'index'])->name('index');
         Route::get('/create', [FeedController::class, 'create'])->name('create');

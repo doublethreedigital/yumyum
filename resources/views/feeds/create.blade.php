@@ -3,7 +3,7 @@
 @section('wrapper_class', 'max-w-xl')
 
 @section('content')
-    <form class="magic-form-builder" action="{{ cp_route('feeder.feeds.store') }}" method="POST">
+    <form class="magic-form-builder" action="{{ cp_route('yumyum.feeds.store') }}" method="POST">
         @csrf
 
         <header class="mb-3">

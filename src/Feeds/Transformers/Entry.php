@@ -1,6 +1,6 @@
 <?php
 
-namespace DoubleThreeDigital\Feeder\Feeds\Transformers;
+namespace DoubleThreeDigital\YumYum\Feeds\Transformers;
 
 class Entry
 {

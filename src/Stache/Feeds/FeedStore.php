@@ -1,8 +1,8 @@
 <?php
 
-namespace DoubleThreeDigital\Feeder\Stache\Feeds;
+namespace DoubleThreeDigital\YumYum\Stache\Feeds;
 
-use DoubleThreeDigital\Feeder\Facades\Feed as FeedFacade;
+use DoubleThreeDigital\YumYum\Facades\Feed as FeedFacade;
 use Illuminate\Support\Arr;
 use Statamic\Facades\YAML;
 use Statamic\Stache\Stores\BasicStore;

@@ -5,7 +5,7 @@
 <div class="flex items-center justify-between mb-3">
     <h1 class="flex-1">Feeds</h1>
 
-    <a class="btn-primary" href="{{ cp_route('feeder.feeds.create') }}">Add Feed</a>
+    <a class="btn-primary" href="{{ cp_route('yumyum.feeds.create') }}">Add Feed</a>
 </div>
 
 @if ($feeds->count())
@@ -27,7 +27,7 @@
                                 <a href="{{ $feed->showUrl() }}">{{ $feed->name() }}</a>
                             </div>
                         </td>
-                        <td>{{ $feed->type() }} - {{ $feed->get('source') }}</td>
+                        <td>{{ $feed->type() }} - <a class="text-blue" href="{{ $feed->get('source') }}" target="_blank">{{ $feed->get('source') }}</a></td>
                         <td class="flex justify-end">
                             <dropdown-list class="mr-1">
                                 <dropdown-item :text="__('Run Feed')" redirect="{{ $feed->runUrl() }}"></dropdown-item>
@@ -84,7 +84,7 @@
     @include('statamic::partials.create-first', [
         'resource' => 'Feed',
         'svg' => 'empty/collection',
-        'route' => cp_route('feeder.feeds.create'),
+        'route' => cp_route('yumyum.feeds.create'),
     ])
 @endif
 @endsection

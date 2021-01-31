@@ -1,9 +1,9 @@
 <?php
 
-namespace DoubleThreeDigital\Feeder\Http\Controllers;
+namespace DoubleThreeDigital\YumYum\Http\Controllers;
 
-use DoubleThreeDigital\Feeder\Facades\Feed;
-use DoubleThreeDigital\Feeder\Jobs\FeedRunnerJob;
+use DoubleThreeDigital\YumYum\Facades\Feed;
+use DoubleThreeDigital\YumYum\Jobs\FeedRunnerJob;
 
 class RunFeedController
 {
