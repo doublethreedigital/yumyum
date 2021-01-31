@@ -26,7 +26,8 @@
 
 4. You should now be able to configure a feed in your Control Panel and run the feed from inside there.
 
-**Example of feed** <br>
+**Example of feed**
+
 Until the whole feed creation process is actually ready, you can create a `.yaml` in your `content/feeds` folder with the contents similar to:
 
 ```yaml
