@@ -19,6 +19,7 @@ class Feed
     protected $type;
     protected $source;
     protected $destination;
+    protected $runs;
 
     public function __construct()
     {
@@ -49,6 +50,27 @@ class Feed
     public function destination($destination = null)
     {
         return $this->fluentlyGetOrSet('destination')->args(func_get_args());
+    }
+
+    public function runs($runs = null)
+    {
+        return $this
+            ->fluentlyGetOrSet('runs')
+            ->setter(function ($value) {
+                return collect($value)
+                    ->sortByDesc('date')
+                    ->take(10)
+                    ->values()
+                    ->toArray();
+            })
+            ->getter(function ($value) {
+                if (is_null($value)) {
+                    return [];
+                }
+
+                return $value;
+            })
+            ->args(func_get_args());
     }
 
     public function transformer()
@@ -86,11 +108,12 @@ class Feed
     public function fileData()
     {
         return [
-            'id'     => $this->id(),
-            'name'   => $this->name(),
-            'type'   => $this->type(),
-            'source' => $this->source(),
+            'id'          => $this->id(),
+            'name'        => $this->name(),
+            'type'        => $this->type(),
+            'source'      => $this->source(),
             'destination' => $this->destination(),
+            'runs'        => $this->runs(),
         ];
     }
 
