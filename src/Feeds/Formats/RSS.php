@@ -2,7 +2,9 @@
 
 namespace DoubleThreeDigital\YumYum\Feeds\Formats;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use SimpleXMLElement;
 
 class RSS
 {
@@ -51,13 +53,14 @@ class RSS
         }
 
         return collect($items)
-            ->map(function ($item) {
-                return [
-                    'title'     => (string) $item->title,
-                    'url'       => (string) $item->link,
-                    'summary'   => (string) strip_tags($item->description) ?? strip_tags($item->summary) ?? '',
-                    'date'      => (string) $item->pubDate ?? $item->updated ?? now()->isoFormat(),
-                ];
+            ->map(function (SimpleXMLElement $item) {
+                return collect((array) $item)->map(function ($value) {
+                    if ($value instanceof SimpleXMLElement) {
+                        return (array) $value;
+                    }
+
+                    return $value;
+                })->toArray();
             });
     }
 }
