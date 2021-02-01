@@ -17,9 +17,17 @@ class FeedRunnerJob implements ShouldQueue
 
     protected $feed;
 
+    protected $result;
+    protected $date;
+    protected $saved;
+
     public function __construct(Feed $feed)
     {
         $this->feed = $feed;
+
+        $this->result = 'failure';
+        $this->date = now()->timestamp;
+        $this->saved = [];
     }
 
     public function handle()
@@ -46,12 +54,25 @@ class FeedRunnerJob implements ShouldQueue
                     return;
                 }
 
-                EntryFacade::make()
+                $entry = EntryFacade::make()
                     ->collection($this->feed->destination()['collection'])
                     ->slug(Str::slug($item['title']))
-                    ->data($item)
-                    ->save();
+                    ->data($item);
+
+                $entry->save();
+
+                $this->saved[] = $entry->reference();
             });
         }
+
+        $this->result = true;
+
+        $this->feed->runs(array_merge($this->feed->runs(), [
+            [
+                'result' => $this->result,
+                'date'   => $this->date,
+                'saved'  => $this->saved,
+            ],
+        ]))->save();
     }
 }
