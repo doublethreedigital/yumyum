@@ -2,14 +2,12 @@
 
 namespace DoubleThreeDigital\YumYum\Feeds\Formats;
 
-use Illuminate\Support\Arr;
+use DoubleThreeDigital\YumYum\Contracts\Format as Contract;
 use Illuminate\Support\Collection;
 use SimpleXMLElement;
 
-class RSS
+class RSS implements Contract
 {
-    // TODO: interface
-
     protected $source;
 
     public function __construct(string $source)

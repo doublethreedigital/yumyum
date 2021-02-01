@@ -2,10 +2,10 @@
 
 namespace DoubleThreeDigital\YumYum\Feeds\Transformers;
 
-class Entry
-{
-    // TODO: interface
+use DoubleThreeDigital\YumYum\Contracts\Transformer as Contract;
 
+class Entry implements Contract
+{
     protected array $item;
 
     public function __construct(array $item)
