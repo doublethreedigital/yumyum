@@ -39,6 +39,13 @@ class FeedRunnerJob implements ShouldQueue
         // Save as entry, etc.
         if ($this->feed->destination()['type'] == 'entries') {
             $items->each(function ($item) {
+                $existingEntry = EntryFacade::findBySlug(Str::slug($item['title']), $this->feed->destination()['collection']);
+
+                if ($existingEntry) {
+                    // TODO: Log "Can't process as entry already exists"
+                    return;
+                }
+
                 EntryFacade::make()
                     ->collection($this->feed->destination()['collection'])
                     ->slug(Str::slug($item['title']))
