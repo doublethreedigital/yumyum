@@ -29,6 +29,7 @@ class FeedStore extends BasicStore
             ->type(array_pull($data, 'type'))
             ->source(array_pull($data, 'source'))
             ->destination(array_pull($data, 'destination'))
+            ->runs(array_pull($data, 'runs'))
             ->data(
                 Arr::except($data, ['name', 'type', 'source', 'destination'])
             );
