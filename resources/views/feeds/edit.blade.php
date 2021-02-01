@@ -1,5 +1,5 @@
 @extends('statamic::layout')
-@section('title', 'Edit Feed')
+@section('title', 'Edit Feed: ' . $feed->name())
 @section('wrapper_class', 'max-w-xl')
 
 @section('content')
