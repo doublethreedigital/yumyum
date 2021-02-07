@@ -67,6 +67,19 @@ class Feed
             ->args(func_get_args());
     }
 
+    public function sourceParser()
+    {
+        if ($this->source()['type'] == 'rss') {
+            return Sources\RSS::class;
+        }
+
+        if ($this->source()['type'] == 'json') {
+            return Sources\JSON::class;
+        }
+
+        return null;
+    }
+
     public function transformer()
     {
         if ($transformer = $this->data()->get('transformer')) {

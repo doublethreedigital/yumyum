@@ -33,7 +33,7 @@ class FeedRunnerJob implements ShouldQueue
     public function handle()
     {
         // Parse feed
-        $items = resolve(RSS::class, [
+        $items = resolve($this->feed->sourceParser(), [
             'source' => $this->feed->source(),
         ])->handle();
 
