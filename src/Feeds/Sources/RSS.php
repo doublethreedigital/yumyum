@@ -23,7 +23,7 @@ class RSS implements Contract
             $file = file_get_contents($this->source['url']);
             $feed = simplexml_load_string($file);
         } catch (\Exception $e) {
-            throw new \Exception("There was an issue parsing the RSS feed provided. ({$this->source})");
+            throw new \Exception("There was an issue parsing the RSS feed provided. ({$this->source['url']})");
         }
 
         if (isset($feed->channel->item)) {
