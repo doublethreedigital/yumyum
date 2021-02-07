@@ -28,7 +28,7 @@
                 <div class="flex flex-wrap">
                     <div class="form-group w-1/2">
                         <label class="block">Type</label>
-                        <select name="type" class="input-text" value="{{ $feed->type() }}">
+                        <select name="type" class="input-text" value="{{ $feed->source()['type'] }}">
                             <option value="rss">RSS</option>
                         </select>
                     </div>

@@ -27,7 +27,7 @@
                                 <a href="{{ $feed->showUrl() }}">{{ $feed->name() }}</a>
                             </div>
                         </td>
-                        <td>{{ $feed->type() }} - <a class="text-blue" href="{{ $feed->get('source') }}" target="_blank">{{ $feed->get('source') }}</a></td>
+                        <td>{{ $feed->source()['type'] }} - <a class="text-blue" href="{{ $feed->get('source') }}" target="_blank">{{ $feed->get('source') }}</a></td>
                         <td class="flex justify-end">
                             <dropdown-list class="mr-1">
                                 <dropdown-item :text="__('Run Feed')" redirect="{{ $feed->runUrl() }}"></dropdown-item>

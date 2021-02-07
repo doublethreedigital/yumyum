@@ -26,7 +26,6 @@ class FeedStore extends BasicStore
         $form = FeedFacade::make()
             ->id($id)
             ->name(array_pull($data, 'name'))
-            ->type(array_pull($data, 'type'))
             ->source(array_pull($data, 'source'))
             ->destination(array_pull($data, 'destination'))
             ->runs(array_pull($data, 'runs'))

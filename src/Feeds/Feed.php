@@ -16,7 +16,6 @@ class Feed
 
     protected $id;
     protected $name;
-    protected $type;
     protected $source;
     protected $destination;
     protected $runs;
@@ -35,11 +34,6 @@ class Feed
     public function name($name = null)
     {
         return $this->fluentlyGetOrSet('name')->args(func_get_args());
-    }
-
-    public function type($type = null)
-    {
-        return $this->fluentlyGetOrSet('type')->args(func_get_args());
     }
 
     public function source($source = null)
@@ -110,7 +104,6 @@ class Feed
         return [
             'id'          => $this->id(),
             'name'        => $this->name(),
-            'type'        => $this->type(),
             'source'      => $this->source(),
             'destination' => $this->destination(),
             'runs'        => $this->runs(),
