@@ -3,7 +3,7 @@
 namespace DoubleThreeDigital\YumYum\Jobs;
 
 use DoubleThreeDigital\YumYum\Feeds\Feed;
-use DoubleThreeDigital\YumYum\Feeds\Formats\RSS;
+use DoubleThreeDigital\YumYum\Feeds\Sources\RSS;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

@@ -1,6 +1,6 @@
 <?php
 
-namespace DoubleThreeDigital\YumYum\Feeds\Formats;
+namespace DoubleThreeDigital\YumYum\Feeds\Sources;
 
 use DoubleThreeDigital\YumYum\Contracts\Format as Contract;
 use Illuminate\Support\Collection;
