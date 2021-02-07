@@ -10,7 +10,7 @@ class RSS implements Contract
 {
     protected $source;
 
-    public function __construct(string $source)
+    public function __construct(array $source)
     {
         $this->source = $source;
     }
@@ -20,7 +20,7 @@ class RSS implements Contract
         $items = [];
 
         try {
-            $file = file_get_contents($this->source);
+            $file = file_get_contents($this->source['url']);
             $feed = simplexml_load_string($file);
         } catch (\Exception $e) {
             throw new \Exception("There was an issue parsing the RSS feed provided. ({$this->source})");
