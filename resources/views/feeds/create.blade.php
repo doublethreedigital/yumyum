@@ -30,6 +30,7 @@
                         <label class="block">Type</label>
                         <select name="source[type]" class="input-text" value="rss">
                             <option value="rss">RSS</option>
+                            <option value="json">JSON</option>
                         </select>
                     </div>
 
