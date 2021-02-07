@@ -28,14 +28,14 @@
                 <div class="flex flex-wrap">
                     <div class="form-group w-1/2">
                         <label class="block">Type</label>
-                        <select name="type" class="input-text" value="{{ $feed->source()['type'] }}">
+                        <select name="source[type]" class="input-text" value="{{ $feed->source()['type'] }}">
                             <option value="rss">RSS</option>
                         </select>
                     </div>
 
                     <div class="form-group w-1/2">
                         <label class="block">Source</label>
-                        <input type="url" name="source" class="input-text font-mono" placeholder="https://some.random.site/feed.json" value="{{ $feed->source() }}">
+                        <input type="url" name="source[url]" class="input-text font-mono" placeholder="https://some.random.site/feed.json" value="{{ $feed->source()['url'] }}">
                     </div>
                 </div>
             </div>
