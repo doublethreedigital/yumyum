@@ -5,6 +5,7 @@
 YumYum is a Statamic addon which lets you import data from common formats like RSS & JSON and save them as Entries or Taxonomy Terms.
 
 **Features**
+
 * Import data from RSS, JSON, XML (coming soon) & CSV (also coming soon)
 * Saveable as Entries or Taxonomy Terms.
 * Ability to regularly run feed imports or run them on-demand through the Control Panel.
@@ -12,9 +13,11 @@ YumYum is a Statamic addon which lets you import data from common formats like R
 * Can use Laravel's queuing system so you can run imports in the background.
 
 **Licensing**
+
 YumYum is a commercial addon available for purchase from the Statamic Marketplace. Licenses cost $29 per site. [Buy now!](https://statamic.com/yumyum)
 
 **Support**
+
 For bug reports or feature requests, [open a Github issue](https://github.com/doublethreedigital/yumyum/issues/new)! For anything else, [drop me an email](mailto:hello@doublethree.digital).
 
 ## Documentation
