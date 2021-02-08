@@ -83,7 +83,7 @@ protected function schedule(Schedule $schedule)
     // $schedule->command('inspire')
     //          ->hourly();
 
-    $schedule->command('yumyum')
+    $schedule->command('yumyum:run')
         ->hourly();
 }
 ```
