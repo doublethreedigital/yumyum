@@ -21,6 +21,9 @@ class RSS implements Contract
 
         try {
             $file = file_get_contents($this->source['url']);
+
+            $file = preg_replace('~(</?|\s)([a-z0-9_]+):~is', '$1$2_', $file);
+
             $feed = simplexml_load_string($file);
         } catch (\Exception $e) {
             throw new \Exception("There was an issue parsing the RSS feed provided. ({$this->source['url']})");
