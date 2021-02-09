@@ -38,6 +38,11 @@
                         <label class="block">Source</label>
                         <input type="url" name="source[url]" class="input-text font-mono" placeholder="https://some.random.site/feed.json">
                     </div>
+
+                    <div class="form-group w-1/2">
+                        <label class="block">Custom Transformer</label>
+                        <input type="text" name="transformer" class="input-text font-mono" placeholder="App\Transformers\WordPress">
+                    </div>
                 </div>
             </div>
 

@@ -4,6 +4,7 @@ namespace DoubleThreeDigital\YumYum\Http\Controllers;
 
 use DoubleThreeDigital\YumYum\Facades\Feed as FeedFacade;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Statamic\Facades\Stache;
 use Statamic\Http\Controllers\CP\CpController;
 
@@ -57,7 +58,10 @@ class FeedController extends CpController
         $feed = FeedFacade::find($feed)
             ->name($request->name)
             ->source($request->source)
-            ->destination($request->destination);
+            ->destination($request->destination)
+            ->data([
+                'transformer' => $request->has('transformer') ? $request->get('transformer') : null,
+            ]);
 
         $feed->save();
 

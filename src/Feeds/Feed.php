@@ -118,13 +118,13 @@ class Feed
 
     public function fileData()
     {
-        return [
+        return $this->data()->merge([
             'id'          => $this->id(),
             'name'        => $this->name(),
             'source'      => $this->source(),
             'destination' => $this->destination(),
             'runs'        => $this->runs(),
-        ];
+        ])->toArray();
     }
 
     public function value($key)
