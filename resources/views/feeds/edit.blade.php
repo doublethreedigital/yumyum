@@ -65,7 +65,10 @@
                         <label class="block">Collection</label>
                         <select name="destination[collection]" class="input-text" value="{{ isset($feed->destination()['collection']) ? $feed->destination()['collection'] : '' }}">
                             @foreach(\Statamic\Facades\Collection::all() as $collection)
-                                <option value="{{ $collection->handle() }}">{{ $collection->title() }}</option>
+                                <option
+                                    value="{{ $collection->handle() }}"
+                                    @if(isset($feed->destination()['collection']) && $collection->handle() == $feed->destination()['collection']) selected @endif
+                                >{{ $collection->title() }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -74,7 +77,10 @@
                         <label class="block">Taxonomy</label>
                         <select name="destination[taxonomy]" class="input-text" value="{{ isset($feed->destination()['taxonomy']) ? $feed->destination()['taxonomy'] : '' }}">
                             @foreach(\Statamic\Facades\Taxonomy::all() as $taxonomy)
-                                <option value="{{ $taxonomy->handle() }}">{{ $taxonomy->title() }}</option>
+                                <option
+                                    value="{{ $taxonomy->handle() }}"
+                                    @if(isset($feed->destination()['taxonomy']) && $taxonomy->handle() == $feed->destination()['taxonomy']) selected @endif
+                                >{{ $taxonomy->title() }}</option>
                             @endforeach
                         </select>
                     </div>
