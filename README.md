@@ -1,7 +1,5 @@
 # YumYum
 
-**🚧  Work in progress**
-
 YumYum is a Statamic addon which lets you import data from common formats like RSS & JSON and save them as Entries or Taxonomy Terms.
 
 **Features**
