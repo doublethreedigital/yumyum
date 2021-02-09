@@ -2,6 +2,7 @@
 
 namespace DoubleThreeDigital\YumYum\Jobs;
 
+use Carbon\Carbon;
 use DoubleThreeDigital\YumYum\Feeds\Feed;
 use DoubleThreeDigital\YumYum\Feeds\Sources\RSS;
 use Illuminate\Bus\Queueable;
@@ -10,6 +11,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Statamic\Facades\Entry as EntryFacade;
 use Illuminate\Support\Str;
+use Statamic\Facades\Collection;
 use Statamic\Facades\Term as TermFacade;
 
 class FeedRunnerJob implements ShouldQueue
@@ -58,6 +60,11 @@ class FeedRunnerJob implements ShouldQueue
                     ->collection($this->feed->destination()['collection'])
                     ->slug(Str::slug($item['title']))
                     ->data($item);
+
+                if (Collection::findByHandle($this->feed->destination()['collection'])->dated() && isset($item['date'])) {
+                    $entry->remove('date');
+                    $entry->date(Carbon::parse($item['date'])->format('Y-m-d-Hi'));
+                }
 
                 $entry->save();
 
