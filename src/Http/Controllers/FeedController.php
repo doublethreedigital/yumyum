@@ -28,7 +28,10 @@ class FeedController extends CpController
             ->id(Stache::generateId())
             ->name($request->name)
             ->source($request->source)
-            ->destination($request->destination);
+            ->destination($request->destination)
+            ->data([
+                'transformer' => $request->has('transformer') ? $request->get('transformer') : null,
+            ]);
 
         $feed->save();
 
