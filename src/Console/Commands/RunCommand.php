@@ -11,7 +11,7 @@ class RunCommand extends Command
 {
     use RunsInPlease;
 
-    protected $name = 'yumyum';
+    protected $name = 'yumyum:run';
 
     public function handle()
     {
