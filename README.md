@@ -90,10 +90,60 @@ protected function schedule(Schedule $schedule)
 
 That snippet will run YumYum's importer every hour. You may wish to adjust the schedule on which it's run, for that you may view the [Laravel documentation](https://laravel.com/docs/master/scheduling#schedule-frequency-options).
 
-### Source Parsers
-
-TODO
-
 ### Destination Transformers
 
-TODO
+Destination Transformers (also sometimes referred to as simply, Transformers) are classes used in between the step of getting your data and saving your data. If you're familiar with Laravel, a transformer is kind of like an [API resource](https://laravel.com/docs/master/eloquent-resources#concept-overview).
+
+By default, YumYum uses a really simple transformer, where everything from the feed's response is then saved.
+
+```php
+<?php
+
+namespace DoubleThreeDigital\YumYum\Feeds\Transformers;
+
+use DoubleThreeDigital\YumYum\Contracts\Transformer as Contract;
+
+class Entry implements Contract
+{
+    protected array $item;
+
+    public function __construct(array $item)
+    {
+        $this->item = $item;
+    }
+
+    public function toArray(): array
+    {
+        return $this->item;
+    }
+}
+```
+
+The `$item` is passed in to your constructor and then your `toArray` method should return an array of data (this is what get's saved).
+
+However, most of the time you'll probably want to use your own, custom transformer. To make it easy, run `php please yumyum:transformer`, followed by the name of your transformer, for example:
+
+```
+php please yumyum:transformer WordPress
+```
+
+The comamnd will generate a `WordPress` transformer in your `App\Transformers` directory with some boilerplate code, enough for you to get started!
+
+**Mapping to fields**
+
+As you know, the `toArray` method should return an array of data, this is what is later saved as an Entry or Term, depending on what you have configured. Most of the time, you'll want to map the data you get back from the feed to your own fields, setup in your blueprint.
+
+Let's take a [Transistor.fm feed](https://feeds.transistor.fm/commonwealth-cast) for example and let's map it to our custom fields.
+
+```php
+public function toArray(): array
+{
+    return [
+        'title' => $this->item['title'],
+        'embed_url' => str_replace('https://share.transistor.fm/s/', 'https://share.transistor.fm/e/', $this->item['link']),
+        'show_notes' => $this->item['description'],
+    ];
+}
+```
+
+> **🔥 Hot Tip:** You can use [`array_merge`](https://www.php.net/manual/en/function.array-merge.php) to pull in existing attributes as well as your custom ones.
