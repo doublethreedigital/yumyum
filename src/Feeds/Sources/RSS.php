@@ -21,9 +21,7 @@ class RSS implements Contract
 
         try {
             $file = file_get_contents($this->source['url']);
-
-            $file = preg_replace('~(</?|\s)([a-z0-9_]+):~is', '$1$2_', $file);
-
+            $file = preg_replace('~(</?|\s)([a-z0-9_]+):~is', '$1$2YY1', $file);
             $feed = simplexml_load_string($file);
         } catch (\Exception $e) {
             throw new \Exception("There was an issue parsing the RSS feed provided. ({$this->source['url']})");
@@ -55,12 +53,18 @@ class RSS implements Contract
 
         return collect($items)
             ->map(function (SimpleXMLElement $item) {
-                return collect((array) $item)->map(function ($value) {
+                return collect((array) $item)->mapWithKeys(function ($value, $key) {
+                    $key = str_replace('YY1', ':', $key);
+
                     if ($value instanceof SimpleXMLElement) {
-                        return (array) $value;
+                        return [$key => (array) $value];
                     }
 
-                    return $value;
+                    if (is_string($value)) {
+                        return [$key => str_replace('YY1', ':', $value)];
+                    }
+
+                    return null;
                 })->toArray();
             });
     }
