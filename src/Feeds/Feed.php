@@ -86,8 +86,12 @@ class Feed
             return $transformer;
         }
 
-        if ($this->destination()['type'] == 'entries') {
+        if ($this->destination()['type'] === 'entries') {
             return Transformers\Entry::class;
+        }
+
+        if ($this->destination()['type'] === 'terms') {
+            return Transformers\Term::class;
         }
 
         return null;

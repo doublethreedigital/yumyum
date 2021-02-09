@@ -10,6 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Statamic\Facades\Entry as EntryFacade;
 use Illuminate\Support\Str;
+use Statamic\Facades\Term as TermFacade;
 
 class FeedRunnerJob implements ShouldQueue
 {
@@ -50,7 +51,6 @@ class FeedRunnerJob implements ShouldQueue
                 $existingEntry = EntryFacade::findBySlug(Str::slug($item['title']), $this->feed->destination()['collection']);
 
                 if ($existingEntry) {
-                    // TODO: Log "Can't process as entry already exists"
                     return;
                 }
 
@@ -62,6 +62,25 @@ class FeedRunnerJob implements ShouldQueue
                 $entry->save();
 
                 $this->saved[] = $entry->reference();
+            });
+        }
+
+        if ($this->feed->destination()['type'] == 'terms') {
+            $items->each(function ($item) {
+                $existingTerm = TermFacade::findBySlug(Str::slug($item['title']), $this->feed->destination()['taxonomy']);
+
+                if ($existingTerm) {
+                    return;
+                }
+
+                $term = TermFacade::make()
+                    ->taxonomy($this->feed->destination()['taxonomy'])
+                    ->slug(Str::slug($item['title']))
+                    ->data($item);
+
+                $term->save();
+
+                $this->saved[] = $term->reference();
             });
         }
 

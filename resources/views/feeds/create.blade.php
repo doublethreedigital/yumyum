@@ -50,16 +50,26 @@
                 <div class="flex flex-wrap">
                     <div class="form-group w-1/2">
                         <label class="block">Type</label>
-                        <select name="destination[type]" class="input-text" value="entries">
+                        <select name="destination[type]" class="input-text" value="entries" onchange="updateDestinationInputs()">
                             <option value="entries">Entries</option>
+                            <option value="terms">Terms</option>
                         </select>
                     </div>
 
-                    <div class="form-group w-1/2">
+                    <div id="destination-collection" class="form-group w-1/2">
                         <label class="block">Collection</label>
-                        <select name="destination[collection]" class="input-text" value="pages">
+                        <select name="destination[collection]" class="input-text">
                             @foreach(\Statamic\Facades\Collection::all() as $collection)
                                 <option value="{{ $collection->handle() }}">{{ $collection->title() }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div id="destination-taxonomy" class="form-group w-1/2">
+                        <label class="block">Taxonomy</label>
+                        <select name="destination[taxonomy]" class="input-text">
+                            @foreach(\Statamic\Facades\Taxonomy::all() as $taxonomy)
+                                <option value="{{ $taxonomy->handle() }}">{{ $taxonomy->title() }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -67,4 +77,25 @@
             </div>
         </div>
     </form>
+@endsection
+
+@section('scripts')
+    <script>
+        document.addEventListener('load', updateDestinationInputs())
+
+        function updateDestinationInputs() {
+            let destinationType = document.getElementsByName('destination[type]')[0].value
+
+            document.getElementById('destination-collection').classList.add('hidden')
+            document.getElementById('destination-taxonomy').classList.add('hidden')
+
+            if (destinationType == 'entries') {
+                document.getElementById('destination-collection').classList.remove('hidden')
+            }
+
+            if (destinationType == 'terms') {
+                document.getElementById('destination-taxonomy').classList.remove('hidden')
+            }
+        }
+    </script>
 @endsection
