@@ -9,6 +9,7 @@ use Statamic\Stache\Stache;
 class ServiceProvider extends AddonServiceProvider
 {
     protected $commands = [
+        Console\Commands\MakeTransformer::class,
         Console\Commands\RunCommand::class,
     ];
 
