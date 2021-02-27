@@ -1,8 +1,12 @@
-# YumYum
+![Banner](https://raw.githubusercontent.com/doublethreedigital/yumyum/master/banner.png)
 
-YumYum is a Statamic addon which lets you import data from common formats like RSS & JSON and save them as Entries or Taxonomy Terms.
+## YumYum
 
-**Features**
+YumYum lets you import data in common formats, like RSS & JSON and save them as Entries or Taxonomy Terms.
+
+This repository contains the source code for YumYum. YumYum is a commercial addon, to use it in production, you'll need to [purchase a license](https://statamic.com/yumyum).
+
+## Features
 
 * Import data from RSS, JSON, XML (coming soon) & CSV (also coming soon)
 * Saveable as Entries or Taxonomy Terms.
@@ -10,17 +14,7 @@ YumYum is a Statamic addon which lets you import data from common formats like R
 * A history log of recent runs.
 * Can use Laravel's queuing system so you can run imports in the background.
 
-**Licensing**
-
-YumYum is a commercial addon available for purchase from the Statamic Marketplace. Licenses cost $29 per site. [Buy now!](https://statamic.com/yumyum)
-
-**Support**
-
-For bug reports or feature requests, [open a Github issue](https://github.com/doublethreedigital/yumyum/issues/new)! For anything else, [drop me an email](mailto:hello@doublethree.digital).
-
-## Documentation
-
-### Installation
+## Installation
 
 **Via the Control Panel:**
 
@@ -33,6 +27,8 @@ For bug reports or feature requests, [open a Github issue](https://github.com/do
 
 1. Require YumYum `composer require doublethreedigital/yumyum`
 2. Once complete, you should be able to view a `Feeds` page in the CP, from there you can get started!
+
+## Documentation
 
 ### How it works
 
@@ -145,3 +141,21 @@ public function toArray(): array
 ```
 
 > **🔥 Hot Tip:** You can use [`array_merge`](https://www.php.net/manual/en/function.array-merge.php) to pull in existing attributes as well as your custom ones.
+
+## Security
+
+From a security perspective, only the latest version will receive a security release if a vulnerability is found.
+
+If you discover a security vulnerability within :addonName, please report it [via email](mailto:duncan@doublethree.digital) straight away. Please don't report security issues in the issue tracker.
+
+## Resources
+
+* [**Issue Tracker**](https://github.com/doublethreedigital/yumyum/issues): Find & report bugs in YumYum
+* [**Email**](mailto:duncan@doublethree.digital): Support from the developer behind the addon
+
+---
+
+<p>
+<a href="https://statamic.com"><img src="https://img.shields.io/badge/Statamic-3.0+-FF269E?style=for-the-badge" alt="Compatible with Statamic v3"></a>
+<a href="https://packagist.org/packages/doublethreedigital/yumyum/stats"><img src="https://img.shields.io/packagist/v/doublethreedigital/yumyum?style=for-the-badge" alt="YumYum on Packagist"></a>
+</p>
