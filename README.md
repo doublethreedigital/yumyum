@@ -146,7 +146,7 @@ public function toArray(): array
 
 From a security perspective, only the latest version will receive a security release if a vulnerability is found.
 
-If you discover a security vulnerability within :addonName, please report it [via email](mailto:duncan@doublethree.digital) straight away. Please don't report security issues in the issue tracker.
+If you discover a security vulnerability within YumYum, please report it [via email](mailto:duncan@doublethree.digital) straight away. Please don't report security issues in the issue tracker.
 
 ## Resources
 
